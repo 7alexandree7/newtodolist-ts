@@ -19,7 +19,7 @@ function App() {
       id: 2,
       title: "Fazer compras",
       description: "Comprar frutas, verduras e laticínios.",
-      isCompleted: false
+      isCompleted: true
     },
 
     {
@@ -30,12 +30,26 @@ function App() {
     },
   ])
 
+
+  const onTaskClick = (taskId: number) => {
+    const newTasks: TaskType[] = tasks.map((task) => {
+      if (task.id === taskId) {
+        return {
+          ...task,
+          isCompleted: !task.isCompleted
+        }
+      }
+      return task
+    })
+    setTasks(newTasks)
+  }
+
   return (
     <div className='bg-slate-500 w-screen h-screen flex flex-col items-center p-6'>
       <div className='w-[500px]'>
         <h1 className='text-3xl text-slate-100 font-bold text-center'>Gerenciador de Tarefas</h1>
         <AddTasks />
-        <TaskList  tasks={tasks} />
+        <TaskList tasks={tasks} onTaskClick={onTaskClick} />
       </div>
 
     </div>
