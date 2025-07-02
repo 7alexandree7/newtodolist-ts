@@ -1,11 +1,11 @@
 //import React from 'react'
 
-const TaskList = () => {
+const AddTasks = () => {
   return (
     <div>
-      tasklist
+      newtask
     </div>
   )
 }
 
-export default TaskList
+export default AddTasks
