@@ -35,7 +35,7 @@ function App() {
       <div className='w-[500px]'>
         <h1 className='text-3xl text-slate-100 font-bold text-center'>Gerenciador de Tarefas</h1>
         <AddTasks />
-        <TaskList />
+        <TaskList  tasks={tasks} />
       </div>
 
     </div>
