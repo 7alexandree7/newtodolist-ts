@@ -7,4 +7,8 @@
 * Fazer a função para remover uma tarefa
 
 * Iniciar Component AddTasks
-* Fazer a Função de adicionar uma nova Tarefa
+* Fazer a Função de adicionar uma nova Tarefa (validação se algo foi inserido / reset dos inputs)
+
+* Utilizar a lib uuid para sempre gerar ID aleatorios para as Tasks
+
+* Utilizar React Router Dom, para a criação da pagina de detalhes da tarefa

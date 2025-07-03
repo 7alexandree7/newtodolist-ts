@@ -4,19 +4,16 @@ import type TaskType from '../../interfaces/Tasks/Tasks'
 
 interface TasklistProps {
     tasks: TaskType[]
-    onTaskClick: (taskId: number) => void
-    onTaskDelete: (taskId: number) => void    
+    onTaskClick: (taskId: string) => void
+    onTaskDelete: (taskId: string ) => void    
         
 }
 
 const TaskList = ({ tasks, onTaskClick, onTaskDelete }: TasklistProps) => {
 
-    console.table(tasks)
-
     return (
         <ul className='bg-slate-200 p-6 rounded-md space-y-4 mt-4 shadow list-none'>
             {tasks.map((task) => (
-
                 <li key={task.id} className='flex w-full gap-4'>
                     <button
                         onClick={() => onTaskClick(task.id)}

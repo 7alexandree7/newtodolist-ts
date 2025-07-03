@@ -2,28 +2,29 @@ import { useState } from 'react'
 import AddTasks from './components/AddTasks/AddTasks'
 import TaskList from './components/taskList/TaskList'
 import type TaskType from './interfaces/Tasks/Tasks'
+import { v4 as uuidv4 } from 'uuid'
 
 
 function App() {
-
+  
   const [tasks, setTasks] = useState<TaskType[]>([
 
     {
-      id: 1,
+      id: uuidv4(),
       title: "Estudar React",
       description: "Estudar React para melhorar habilidades de desenvolvimento web.",
       isCompleted: false
     },
 
     {
-      id: 2,
+      id: uuidv4(),
       title: "Fazer compras",
       description: "Comprar frutas, verduras e laticínios.",
       isCompleted: true
     },
 
     {
-      id: 3,
+      id: uuidv4(),
       title: "Ler um livro",
       description: "Ler pelo menos 30 páginas do livro atual.",
       isCompleted: false
@@ -31,7 +32,7 @@ function App() {
   ])
 
 
-  const onTaskClick = (taskId: number) => {
+  const onTaskClick = (taskId: string) => {
     const newTasks: TaskType[] = tasks.map((task) => {
       if (task.id === taskId) {
         return {
@@ -44,7 +45,7 @@ function App() {
     setTasks(newTasks)
   }
 
-  const onTaskDelete = (taskId: number) => {
+  const onTaskDelete = (taskId: string) => {
     const newTasks = tasks.filter((task) => task.id !== taskId)
     setTasks(newTasks)
   }
@@ -52,15 +53,16 @@ function App() {
 
   const onAddTaskSubmit = (title: string, description: string) => {
 
+    if (!title.trim() || !description.trim()) return
+
     const newTasks: TaskType = {
-      id: tasks.length + 1,
+      id: uuidv4(),
       title: title,
       description: description,
       isCompleted: false
     }
     setTasks([...tasks, newTasks])
   }
-
 
 
 
