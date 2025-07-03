@@ -11,6 +11,8 @@ interface TasklistProps {
 
 const TaskList = ({ tasks, onTaskClick, onTaskDelete }: TasklistProps) => {
 
+    console.table(tasks)
+
     return (
         <ul className='bg-slate-200 p-6 rounded-md space-y-4 mt-4 shadow list-none'>
             {tasks.map((task) => (
@@ -31,8 +33,6 @@ const TaskList = ({ tasks, onTaskClick, onTaskDelete }: TasklistProps) => {
                         <TrashIcon />
                     </button>
                 </li>
-
-
 
             ))}
         </ul>

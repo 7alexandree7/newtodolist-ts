@@ -7,3 +7,4 @@
 * Fazer a função para remover uma tarefa
 
 * Iniciar Component AddTasks
+* Fazer a Função de adicionar uma nova Tarefa
