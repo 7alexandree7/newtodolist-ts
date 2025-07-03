@@ -1,13 +1,15 @@
 //import React from 'react'
-import { ChevronRightIcon } from 'lucide-react'
+import { ChevronRightIcon, TrashIcon } from 'lucide-react'
 import type TaskType from '../../interfaces/Tasks/Tasks'
 
 interface TasklistProps {
     tasks: TaskType[]
     onTaskClick: (taskId: number) => void
+    onTaskDelete: (taskId: number) => void    
+        
 }
 
-const TaskList = ({ tasks, onTaskClick }: TasklistProps) => {
+const TaskList = ({ tasks, onTaskClick, onTaskDelete }: TasklistProps) => {
 
     return (
         <ul className='bg-slate-200 p-6 rounded-md space-y-4 mt-4 shadow list-none'>
@@ -22,6 +24,11 @@ const TaskList = ({ tasks, onTaskClick }: TasklistProps) => {
                     <button
                         className='bg-slate-400 text-white  p-2 rounded-md cursor-pointer'>
                         <ChevronRightIcon />
+                    </button>
+                    <button
+                        onClick={() => onTaskDelete(task.id)}
+                        className='bg-slate-400 text-white  p-2 rounded-md cursor-pointer'>
+                        <TrashIcon />
                     </button>
                 </li>
 
