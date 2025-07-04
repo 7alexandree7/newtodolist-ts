@@ -1,8 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
+import  TaskPage from './Pages/TaskPage/TaskPage.tsx'
 
 const router = createBrowserRouter([
   {
@@ -10,8 +11,8 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/oi",
-    element: <p>Oi</p>,
+    path: "/task",
+    element: <TaskPage />,
   },
 ])
 

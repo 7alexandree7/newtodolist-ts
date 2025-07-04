@@ -11,4 +11,5 @@
 
 * Utilizar a lib uuid para sempre gerar ID aleatorios para as Tasks
 
-* Utilizar React Router Dom, para a criação da pagina de detalhes da tarefa
+* Utilizar React Router Dom, para a criação da pagina de detalhes da tarefa (useNavigate / queryParams / URLSearchParams)
+* Conseguir voltar da pagina de tarefas com um botão para a home
