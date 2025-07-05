@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import AddTasks from './components/AddTasks/AddTasks'
 import TaskList from './components/taskList/TaskList'
 import type TaskType from './interfaces/Tasks/Tasks'
@@ -7,29 +7,12 @@ import { v4 as uuidv4 } from 'uuid'
 
 function App() {
   
-  const [tasks, setTasks] = useState<TaskType[]>([
+  const [tasks, setTasks] = useState<TaskType[]>(JSON.parse(localStorage.getItem("tasks") || "[]"))
 
-    {
-      id: uuidv4(),
-      title: "Estudar React",
-      description: "Estudar React para melhorar habilidades de desenvolvimento web.",
-      isCompleted: false
-    },
 
-    {
-      id: uuidv4(),
-      title: "Fazer compras",
-      description: "Comprar frutas, verduras e laticínios.",
-      isCompleted: true
-    },
-
-    {
-      id: uuidv4(),
-      title: "Ler um livro",
-      description: "Ler pelo menos 30 páginas do livro atual.",
-      isCompleted: false
-    },
-  ])
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+  },[tasks])
 
 
   const onTaskClick = (taskId: string) => {

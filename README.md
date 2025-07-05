@@ -13,3 +13,8 @@
 
 * Utilizar React Router Dom, para a criação da pagina de detalhes da tarefa (useNavigate / queryParams / URLSearchParams)
 * Conseguir voltar da pagina de tarefas com um botão para a home
+
+* Persistencia das Tasks com (useEffect / localStorage)
+
+* Criar componente para os inputs
+* Criar Componente para os buttons

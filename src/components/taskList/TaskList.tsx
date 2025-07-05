@@ -2,11 +2,12 @@
 import { ChevronRightIcon, TrashIcon } from 'lucide-react'
 import type TaskType from '../../interfaces/Tasks/Tasks'
 import { useNavigate } from 'react-router-dom'
+import Button from '../Button/Button'
 
 interface TasklistProps {
     tasks: TaskType[]
     onTaskClick: (taskId: string) => void
-    onTaskDelete: (taskId: string ) => void         
+    onTaskDelete: (taskId: string) => void
 }
 
 
@@ -14,8 +15,8 @@ const TaskList = ({ tasks, onTaskClick, onTaskDelete }: TasklistProps) => {
 
     const navigate = useNavigate()
 
-    const onSeeDetailsClick = (task: TaskType) =>  {
-        const query = new URLSearchParams()  
+    const onSeeDetailsClick = (task: TaskType) => {
+        const query = new URLSearchParams()
         query.set("title", task.title)
         query.set("description", task.description)
         navigate(`/task?${query.toString()}`)
@@ -28,18 +29,10 @@ const TaskList = ({ tasks, onTaskClick, onTaskDelete }: TasklistProps) => {
                     <button
                         onClick={() => onTaskClick(task.id)}
                         className={`${task.isCompleted && 'line-through'} bg-slate-400 text-white p-2 rounded-md flex-1 cursor-pointer text-left pl-2`}>
-                        {task.title}                     
+                        {task.title}
                     </button>
-                    <button
-                    onClick={() => onSeeDetailsClick(task)}
-                        className='bg-slate-400 text-white  p-2 rounded-md cursor-pointer'>
-                        <ChevronRightIcon />
-                    </button>
-                    <button
-                        onClick={() => onTaskDelete(task.id)}
-                        className='bg-slate-400 text-white  p-2 rounded-md cursor-pointer'>
-                        <TrashIcon />
-                    </button>
+                    <Button onClick={() => onSeeDetailsClick(task)}> <ChevronRightIcon /> </Button>
+                    <Button onClick={() => onTaskDelete(task.id)}> <TrashIcon /> </Button>
                 </li>
 
             ))}
